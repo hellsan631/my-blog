@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Router from './Router'
 import styled from 'styled-components'
-import Colors from './theme/Colors'
 
 const AppContainer = styled.div`
   
