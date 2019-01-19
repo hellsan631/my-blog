@@ -5,7 +5,7 @@ import NavBar from './components/Navigation/NavBar'
 
 const FunComponent = AsyncComponent('./components/FunComponent')
 const TerribleComponent = AsyncComponent('./components/TerribleComponent')
-const TestComponent = AsyncComponent('./components/TestComponent')
+const HomePage = AsyncComponent('./components/HomePage')
 
 const LoadingMessage = () => (
   "I'm loading..."
@@ -26,7 +26,7 @@ const Router = () => (
           </Route>
 
           <Route>
-            <TestComponent />
+            <HomePage />
           </Route>
         </Switch>
       </Suspense>
