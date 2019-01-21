@@ -1,15 +1,23 @@
 import React, { Suspense, Fragment } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import AsyncComponent from './AsyncComponent'
 import NavBar from './components/Navigation/NavBar'
-
-const FunComponent = AsyncComponent('./components/FunComponent')
-const TerribleComponent = AsyncComponent('./components/TerribleComponent')
-const HomePage = AsyncComponent('./components/HomePage')
+import Routes from './Routes';
 
 const LoadingMessage = () => (
   "I'm loading..."
 )
+
+const RouteWithSubRoutes = ({ path, routes, Component }) => {
+  return (
+    <Route
+      path={path}
+      render={(props) => (
+        // pass the sub-routes down to keep nesting
+        <Component {...props} routes={routes} />
+      )}
+    />
+  );
+}
 
 const Router = () => (
   <BrowserRouter>
@@ -17,17 +25,9 @@ const Router = () => (
       <NavBar />
       <Suspense fallback={<LoadingMessage />}>
         <Switch>
-          <Route path="/fun">
-            <FunComponent />
-          </Route>
-
-          <Route path="/terrible">
-            <TerribleComponent />
-          </Route>
-
-          <Route>
-            <HomePage />
-          </Route>
+          {Routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
         </Switch>
       </Suspense>
     </Fragment>

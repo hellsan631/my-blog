@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Colors from '../theme/Colors'
-import Shadows from '../theme/Shadows'
+import Colors from '../../theme/Colors'
+import Shadows from '../../theme/Shadows'
 
 const PostName = styled.div`
   position: absolute;
@@ -48,17 +49,20 @@ const PostItemContainer = styled.div`
     }
   }
 `
+const createLink = (id) => `/post/${id}`
 
-const PostItem = ({ name, source, image: { url } }) => (
-  <PostItemContainer>
-    <PostImage
-      image={url}
-    />
-    <PostName>
-      <h3>{name}</h3>
-      <h6>{source}</h6>
-    </PostName>
-  </PostItemContainer>
+const PostItem = ({ _id, name, source, image: { url } }) => (
+  <Link to={createLink(_id)}>
+    <PostItemContainer>
+      <PostImage
+        image={url}
+      />
+      <PostName>
+        <h3>{name}</h3>
+        <h6>{source}</h6>
+      </PostName>
+    </PostItemContainer>
+  </Link>
 )
 
 export default PostItem

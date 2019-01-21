@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Colors from '../theme/Colors'
-import Shadows from '../theme/Shadows'
-import SpringCard from './SpringCard'
+import Colors from '../../theme/Colors'
+import Shadows from '../../theme/Shadows'
+import SpringCard from '../SpringCard'
 
 const BlogName = styled.div`
   position: absolute;
@@ -11,7 +12,6 @@ const BlogName = styled.div`
   padding: 0.5vh 1.5vw;
   min-width: 15vw;
   /* background: ${Colors.accents[0]}; */
-  color: ${Colors.text.dark};
   transition: all ease-out 225ms;
 `
 
@@ -38,16 +38,22 @@ const BlogImage = styled.div`
   background-image: url('${({ image }) => image}');
 `
 
-const BlogItemContainer = styled.article`
+export const BlogItemContainer = styled.article`
   position: relative;
   height: 40vh;
   width: 20vw;
-  margin: 4vw;
+  margin: 4vw 2vw;
   border-radius: 1vw;
   ${Shadows.z[1]};
   transition: all ease-out 175ms;
   cursor: pointer;
   overflow: hidden;
+  color: ${Colors.text.dark};
+
+  & > svg {
+    height: 100%;
+    width: 100%;
+  }
 `
 
 const BlogItemDescription = styled.summary`
@@ -64,25 +70,28 @@ const BlogItemCategories = styled.summary`
   padding: 0.5vh 1.5vw;
 `
 
+const createLink = (id) => `/blog/${id}`
 
-const BlogItem = ({ name, image: { url }, blurb, category = [] }) => (
+const BlogItem = ({ _id, name, image: { url }, blurb, category = [] }) => (
   <SpringCard>
-    <BlogItemContainer>
-      <BlogImageContainer>
-        <BlogImage
-          image={url}
-        />
-      </BlogImageContainer>
-      <BlogName>
-        <h3>{name}</h3>
-      </BlogName>
-      <BlogItemDescription>
-        {blurb}
-      </BlogItemDescription>
-      <BlogItemCategories>
-        {category.map(({ name }) => name)}
-      </BlogItemCategories>
-    </BlogItemContainer>
+    <Link to={createLink(_id)}>
+      <BlogItemContainer>
+        <BlogImageContainer>
+          <BlogImage
+            image={url}
+          />
+        </BlogImageContainer>
+        <BlogName>
+          <h3>{name}</h3>
+        </BlogName>
+        <BlogItemDescription>
+          {blurb}
+        </BlogItemDescription>
+        <BlogItemCategories>
+          {category.map(({ name }) => name)}
+        </BlogItemCategories>
+      </BlogItemContainer>
+    </Link>
   </SpringCard>
 )
 
