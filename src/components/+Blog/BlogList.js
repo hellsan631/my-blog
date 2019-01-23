@@ -3,7 +3,7 @@ import { Query } from 'react-apollo'
 import styled from 'styled-components'
 import QueryHandler from '../utils/QueryHandler'
 import ListHeader from '../ListHeader'
-import BlogItem from './BlogItem'
+import BlogPreviewItem from './BlogPreviewItem'
 import BlogSkeleton from './BlogSkeleton'
 
 const BlogStyled = styled.div`
@@ -30,7 +30,7 @@ const BlogContainer = ({ data: { posts } }) => (
   <BlogStyled>
     {
       [...posts].splice(0, 3).map((props) => 
-        <BlogItem
+        <BlogPreviewItem
           key={props._id}
           {...props}
         />

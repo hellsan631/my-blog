@@ -10,6 +10,21 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Nerd Font', monospace;
+}
+
+@font-face {
+  font-family: 'Nerd Font';
+  src: url('BookNerdFont.woff2') format('woff2'),
+      url('BookNerdFont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nerd Font';
+  src: url('BookNerdFont-BoldItalic.woff2') format('woff2'),
+      url('BookNerdFont-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
 }

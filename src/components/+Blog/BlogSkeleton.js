@@ -1,6 +1,6 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
-import { BlogItemContainer } from './BlogItem'
+import { BlogItemContainer } from './BlogPreviewItem'
 
 const widthWeight = (original, weight = 1.0) => original * weight;
 

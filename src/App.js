@@ -5,7 +5,11 @@ import styled from 'styled-components'
 import Router from './Router'
 import ApolloClient from './services/ApolloClient'
 
-const AppContainer = styled.div``
+const AppContainer = styled.div`
+  a {
+    text-decoration: none;
+  }
+`
 
 const App = () => (
   <AppContainer>

@@ -37,3 +37,23 @@ export const BlogQuery = gql`
     }
   }
 `
+
+export const SingleBlogQuery = (_id) => 
+  gql`
+    {
+      post(id: "${_id}") {
+        _id
+        name
+        image {
+          url
+        }
+        createdOn
+        blurb
+        source
+        category {
+          name
+        }
+        description
+      }
+    }
+  `

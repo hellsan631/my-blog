@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+
 import Colors from '../../theme/Colors'
 import Shadows from '../../theme/Shadows'
 import SpringCard from '../SpringCard'
@@ -72,7 +73,7 @@ const BlogItemCategories = styled.summary`
 
 const createLink = (id) => `/blog/${id}`
 
-const BlogItem = ({ _id, name, image: { url }, blurb, category = [] }) => (
+const BlogPreviewItem = ({ _id, name, image: { url }, blurb, category = [] }) => (
   <SpringCard>
     <Link to={createLink(_id)}>
       <BlogItemContainer>
@@ -95,4 +96,4 @@ const BlogItem = ({ _id, name, image: { url }, blurb, category = [] }) => (
   </SpringCard>
 )
 
-export default BlogItem
+export default BlogPreviewItem

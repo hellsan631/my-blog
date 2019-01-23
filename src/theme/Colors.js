@@ -10,7 +10,33 @@ const Colors = {
     '#393e46',
     '#929aab',
   ],
+  code: {
+    blue: 'rgb(195, 154, 201)',
+    red: 'rgb(255, 101, 122)',
+    green: 'rgb(156, 209, 187)',
+    gray: '#778090',
+    offWhite: '#A8AFB4',
+    yellow: 'rgb(186, 215, 97)',
+    white: '#ffffff',
+    orange: '#FD971F',
+    navy: 'rgb(40, 42, 58)',
+  }
 }
+
+export const CodeColor = {
+  comments: `${Colors.code.gray}cc`,
+  punctuation: Colors.code.gray,
+  declarations: Colors.code.green,
+  operators: Colors.code.red,
+  functions: Colors.code.yellow,
+  variables: Colors.code.white,
+  numbers: Colors.code.blue,
+  tags: Colors.code.red,
+  important: Colors.code.orange,
+  selection: `${Colors.code.white}25`,
+  background: Colors.code.navy,
+  self: Colors.code.offWhite,
+};
 
 export const getHex = (color, position) => {
   return parseInt(

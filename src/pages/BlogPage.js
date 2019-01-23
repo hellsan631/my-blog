@@ -1,9 +1,33 @@
 import React, { Fragment } from 'react'
+import { SingleBlogQuery } from '../models/WorkQL'
+import { Query } from 'react-apollo'
+import QueryHandler from '../components/utils/QueryHandler'
+import BlogHead from '../components/+Blog/BlogHead'
+import BlogText from '../components/+Blog/BlogText';
 
-const BlogPage = ({ match }) => (
+const BlogPageItem = ({ data: { post } }) => (
   <Fragment>
-    { JSON.stringify(match) }
+    <BlogHead
+      {...post}
+    />
+    <BlogText
+      text={post.description}
+    />
   </Fragment>
+)
+
+const BlogPage = ({ match: { params }}) => (
+  <Query
+    query={SingleBlogQuery(params.id)}
+  >
+      {
+        (props) =>
+          QueryHandler({
+            component: BlogPageItem,
+            ...props,
+          })
+      }
+  </Query>
 )
 
 export default BlogPage

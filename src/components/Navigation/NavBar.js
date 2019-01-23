@@ -15,6 +15,9 @@ export const NavBarHeader = styled.header`
   display: flex;
   flex-direction: row;
   flex: 1;
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
 `
 
 const NavBar = () => (
