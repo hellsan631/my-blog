@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #f7f7f7;
   color: #333;
+  
 }
 
 code {
@@ -15,16 +16,16 @@ code {
 
 @font-face {
   font-family: 'Nerd Font';
-  src: url('BookNerdFont.woff2') format('woff2'),
-      url('BookNerdFont.woff') format('woff');
+  src: url('BookNerd.woff2') format('woff2'),
+      url('BookNerd.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Nerd Font';
-  src: url('BookNerdFont-BoldItalic.woff2') format('woff2'),
-      url('BookNerdFont-BoldItalic.woff') format('woff');
+  src: url('BookNerdBold-Italic.woff2') format('woff2'),
+      url('BookNerdBold-Italic.woff') format('woff');
   font-weight: bold;
   font-style: italic;
 }

@@ -20,10 +20,10 @@ class BlogText extends Component {
       func: LineNumbers
     },
     {
-      func: CopyClipboard
+      func: ShowLanguage
     },
     {
-      func: ShowLanguage
+      func: CopyClipboard
     },
   ]
 

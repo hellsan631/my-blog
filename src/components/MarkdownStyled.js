@@ -45,11 +45,11 @@ const MarkdownStyled = styled.div`
   
   pre[class*="language-"] {
     padding: 1.2em 1em;
+    padding-bottom: 2em;
     margin: 2em 0;
     overflow: auto;
-    border-radius: 0.5em;
+    border-radius: 0 0 0.5em 0.5em;
 
-    ${Shadows.z[4]};
 
     &.line-numbers {
       padding-left: 3.5em !important;
@@ -201,6 +201,60 @@ const MarkdownStyled = styled.div`
     width: 3em !important;
     left: -3.5em !important;
     border-right: none !important;
+  }
+
+  div.code-toolbar > .toolbar {
+    top: 1.9em;
+    left: 0;
+    right: 0;
+    background: rgba(40, 42, 58, 0.95);
+    opacity: 1;
+    .toolbar-item {
+      margin: 0;
+      line-height: 0;
+      padding: 1.0em 0em;
+      color: rgb(255, 215, 109);
+      border-bottom: 1px solid rgba(255, 215, 109, 0.0);
+      &:first-child {
+        background: rgba(255,255,255, 0.05);
+        border-bottom: 1px solid rgb(255, 215, 109);
+      }
+
+      &:hover {
+        border-bottom: 1px solid rgba(255, 215, 109, 0.5);
+        background: rgba(255,255,255, 0.02);
+      }
+      
+      & > span, & > a {
+        margin: 0;
+        color: #fff;
+        padding: 0.5em 3.45em;
+        border-radius: 0;
+        line-height: 0;
+        background: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .code-toolbar {
+    margin: 5vh 0; 
+    ${Shadows.z[2]};
+    border-radius: 0.5em;
+    padding-top: 2.4em;
+    background:
+      radial-gradient(
+        7px at 20px 1em, #ff5e57 0px, #ff635a 5px, #888 6px, rgba(255, 255, 255, 0) 7px
+      ),
+      radial-gradient(
+        7px at 40px 1em, #ffbd2e 0px, #ffc42f 5px, #aaa 6px, rgba(255, 255, 255, 0) 7px
+      ),
+      radial-gradient(
+        7px at 60px 1em, rgb(71, 177, 89) 0px, rgb(71, 177, 89) 5px, #999 6px, rgba(255, 255, 255, 0) 7px
+      ),
+      linear-gradient(
+        to bottom, #efefef 0, #d6d6d6 1px, #cccccc 3em
+      );
   }
 `
 

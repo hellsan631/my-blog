@@ -33,7 +33,7 @@ export const CodeColor = {
   numbers: Colors.code.blue,
   tags: Colors.code.red,
   important: Colors.code.orange,
-  selection: `${Colors.code.white}25`,
+  selection: `${Colors.code.white}30`,
   background: Colors.code.navy,
   self: Colors.code.offWhite,
 };

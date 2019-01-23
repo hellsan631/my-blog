@@ -4,7 +4,7 @@ import Colors from '../../theme/Colors';
 const BlogTextStyled = styled.div`
   max-width: 960px;
   width: 100%;
-  margin: 4em auto;
+  margin: 3em auto;
 
   font-size: 1.2rem;
   line-height: 1.58em;
@@ -16,14 +16,6 @@ const BlogTextStyled = styled.div`
     padding: 0.25em 0.5em;
     margin: 0 0.2em;
     border-radius: 3px;
-  }
-
-  div.code-toolbar > .toolbar {
-    opacity: 0.4;
-    margin-right: 0.5em;
-    .toolbar-item {
-      margin: 0.4em;
-    }
   }
 
   span.highlight {
