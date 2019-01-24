@@ -2,10 +2,17 @@ import React, { Fragment } from 'react'
 import { SingleBlogQuery } from '../models/WorkQL'
 import { Query } from 'react-apollo'
 import QueryHandler from '../components/utils/QueryHandler'
+import PostHeader from '../components/+Post/PostHeader'
+import PostText from '../components/+Post/PostText';
 
 const PostPageItem = ({ data: { post } }) => (
   <Fragment>
-    { JSON.stringify(post) }
+    <PostHeader 
+      {...post}
+    />
+    <PostText
+      {...post}
+    />
   </Fragment>
 )
 

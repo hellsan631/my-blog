@@ -54,6 +54,8 @@ export const SingleBlogQuery = (_id) =>
           name
         }
         description
+        website
+        dateRange
       }
     }
   `

@@ -4,9 +4,31 @@ import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-typescript'
 import MarkdownStyled from './MarkdownStyled'
+import {  
+  CopyClipboard,
+  LineNumbers,
+  ShowLanguage,
+  Toolbar,
+} from './utils/prism'
 
 class Markdown extends Component {
   ref = null
+
+  plugins = [
+    {
+      func: Toolbar
+    },
+    {
+      className: 'line-numbers',
+      func: LineNumbers
+    },
+    {
+      func: ShowLanguage
+    },
+    {
+      func: CopyClipboard
+    },
+  ]
 
   componentDidMount () {
     this.highlight()
@@ -17,7 +39,7 @@ class Markdown extends Component {
   }
 
   highlight() {
-    const { plugins } = this.props;
+    const { plugins } = this;
     this.addStyleHook();
     if (plugins) {
       plugins.map(({ func, className, dataAttribute, defer }) => {

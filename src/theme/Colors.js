@@ -11,15 +11,15 @@ const Colors = {
     '#929aab',
   ],
   code: {
-    blue: 'rgb(195, 154, 201)',
-    red: 'rgb(255, 101, 122)',
-    green: 'rgb(156, 209, 187)',
+    blue: '#c39ac9',
+    red: '#ff657a',
+    green: '#9cd1bb',
     gray: '#778090',
     offWhite: '#A8AFB4',
-    yellow: 'rgb(186, 215, 97)',
+    yellow: '#bad761',
     white: '#ffffff',
     orange: '#FD971F',
-    navy: 'rgb(40, 42, 58)',
+    navy: '#282a3a',
   }
 }
 

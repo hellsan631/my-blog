@@ -29,3 +29,11 @@ code {
   font-weight: bold;
   font-style: italic;
 }
+
+.defs-only {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: none;
+  left: -100%;
+}

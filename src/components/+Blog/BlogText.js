@@ -1,32 +1,9 @@
 import React, { Component } from 'react'
 import Markdown from '../Markdown'
 
-import {  
-  CopyClipboard,
-  LineNumbers,
-  ShowLanguage,
-  Toolbar,
-} from '../utils/prism'
-
 import BlogTextStyled from './BlogTextStyled';
 
 class BlogText extends Component {
-  plugins = [
-    {
-      func: Toolbar
-    },
-    {
-      className: 'line-numbers',
-      func: LineNumbers
-    },
-    {
-      func: ShowLanguage
-    },
-    {
-      func: CopyClipboard
-    },
-  ]
-
   render() {
     const { text } = this.props
     return (
