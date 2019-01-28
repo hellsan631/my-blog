@@ -1,4 +1,5 @@
 import Prism from 'prismjs'
+import { useRef, useEffect } from 'react'
 import 'prismjs/components/prism-jsx'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-flow'
@@ -12,19 +13,29 @@ function _renderNodeList(func, ref) {
   }
 }
 
-function addAttributes(attribute, ref) {
+function _addAttributes(attribute, ref) {
   _renderNodeList((element) => {
     element.setAttribute(...attribute)
   }, ref)
 }
 
-function addClasses(className, ref) {
+function _addClasses(className, ref) {
   _renderNodeList((element) => {
     element.classList.add(className)
   }, ref)
 }
 
-export function usePrism(
+export function usePrism() {
+  const ref = useRef();
+
+  useEffect(() => {
+    withPrism(ref, ...(arguments || {}))
+  })
+
+  return ref;
+}
+
+export function withPrism(
   { current: ref },
   plugins = [],
   addHooks = () => {},
@@ -32,10 +43,10 @@ export function usePrism(
   addHooks(Prism);
   plugins.map(({ func, className, dataAttribute }) => {
     if (className) {
-      addClasses(className, ref);
+      _addClasses(className, ref);
     }
     if (dataAttribute) {
-      addAttributes(dataAttribute, ref);
+      _addAttributes(dataAttribute, ref);
     }
     return func(Prism)
   });
