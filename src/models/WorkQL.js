@@ -8,6 +8,7 @@ export const PostQuery = gql`
       }
     ) {
       _id
+      createdOn
       name
       image {
         url
@@ -25,6 +26,7 @@ export const BlogQuery = gql`
       }
     ) {
       _id
+      createdOn
       name
       image {
         url

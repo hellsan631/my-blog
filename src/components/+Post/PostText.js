@@ -8,7 +8,7 @@ import PostMarkdownStyled from './PostMarkdownStyled';
 const PostTextContainer = styled.div`
   position: relative;
   padding: 6em 0;
-  width: 100vw;
+  width: 100%;
   background-color: ${Colors.code.navy};
   color: ${Colors.code.white}dd;
   display: flex;

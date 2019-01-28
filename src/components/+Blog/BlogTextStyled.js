@@ -13,9 +13,14 @@ const BlogTextStyled = styled.div`
   code:not([class*="language-"]) {
     background: rgba(40, 42, 58, 0.8);
     color: #fff;
-    padding: 0.25em 0.5em;
+    padding: 0.15em 0.5em;
     margin: 0 0.2em;
     border-radius: 3px;
+  }
+
+  img {
+    max-width: 100%;
+    text-align: center;
   }
 
   span.highlight {

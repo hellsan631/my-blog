@@ -78,6 +78,8 @@ const MarkdownStyled = styled.div`
     &.doctype,
     &.cdata {
       color: ${CodeColor.comments};
+      font-weight: 600;
+      font-style: italic;
       text-shadow: 0 1px rgba(0, 0, 0, 0.4);
     }
   }

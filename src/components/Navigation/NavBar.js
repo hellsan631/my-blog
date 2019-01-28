@@ -17,7 +17,7 @@ export const NavBarHeader = styled.header`
   flex: 1;
   position: absolute;
   z-index: 5;
-  width: 100vw;
+  width: 100%;
 `
 
 const NavBar = () => (

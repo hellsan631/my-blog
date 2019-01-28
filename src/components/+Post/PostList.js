@@ -13,19 +13,23 @@ const PostListStyled = styled.section`
 const PostListContainer = ({ data: { posts } }) => (
   <PostListStyled>
     {
-      posts.map((props) => 
-        <PostItem
-          key={props._id}
-          {...props}
-        />
-      )
+      [...posts]
+        .sort((a, b) => {
+          return new Date(b.createdOn) - new Date(a.createdOn);
+        })
+        .map((props) => 
+          <PostItem
+            key={props._id}
+            {...props}
+          />
+        )
     }
   </PostListStyled>
 )
 
 const PostList = ({ query }) => (
   <Fragment>
-    <ListHeader>Featured Work</ListHeader>
+    <ListHeader>Portfolio</ListHeader>
     <Query
       query={query}
     >

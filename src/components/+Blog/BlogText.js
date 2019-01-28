@@ -1,20 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Markdown from '../Markdown'
 
 import BlogTextStyled from './BlogTextStyled';
 
-class BlogText extends Component {
-  render() {
-    const { text } = this.props
-    return (
-      <BlogTextStyled>
-        <Markdown
-          source={text}
-          plugins={this.plugins}
-        />
-      </BlogTextStyled>
-    )
-  }
-}
+const  BlogText = ({ text }) => (
+  <BlogTextStyled>
+    <Markdown
+      source={text}
+    />
+  </BlogTextStyled>
+);
 
 export default BlogText

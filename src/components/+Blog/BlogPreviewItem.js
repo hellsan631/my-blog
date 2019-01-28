@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 
 import Colors from '../../theme/Colors'
@@ -8,10 +9,11 @@ import SpringCard from '../SpringCard'
 
 const BlogName = styled.div`
   position: absolute;
-  top: 5vh;
+  top: 5.5vh;
   left: 0vh;
   padding: 0.5vh 1.5vw;
-  min-width: 15vw;
+  min-width: 5vw;
+  max-width: 65%;
   /* background: ${Colors.accents[0]}; */
   transition: all ease-out 225ms;
 `
@@ -28,14 +30,14 @@ const BlogImageContainer = styled.div`
 
 const BlogImage = styled.div`
   position: absolute;
-  top: -20%;
-  left: -20%;
-  right: -20%;
+  top: 10%;
+  left: 0%;
+  right: -50%;
   bottom: -50%;
   transform: rotate(-6deg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top left;
   background-image: url('${({ image }) => image}');
 `
 
@@ -86,7 +88,9 @@ const BlogPreviewItem = ({ _id, name, image: { url }, blurb, category = [] }) =>
           <h3>{name}</h3>
         </BlogName>
         <BlogItemDescription>
-          {blurb}
+          <ReactMarkdown
+            source={blurb}
+          />
         </BlogItemDescription>
         <BlogItemCategories>
           {category.map(({ name }) => name)}

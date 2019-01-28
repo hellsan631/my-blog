@@ -29,12 +29,17 @@ const BlogSkeletonList = () => (
 const BlogContainer = ({ data: { posts } }) => (
   <BlogStyled>
     {
-      [...posts].splice(0, 3).map((props) => 
-        <BlogPreviewItem
-          key={props._id}
-          {...props}
-        />
-      )
+      [...posts]
+        .sort((a, b) => {
+          return new Date(b.createdOn) - new Date(a.createdOn);
+        })
+        .splice(0, 3)
+        .map((props) => 
+          <BlogPreviewItem
+            key={props._id}
+            {...props}
+          />
+        )
     }
   </BlogStyled>
 )

@@ -8,14 +8,14 @@ const BlogHeadImage = styled.div`
   height: 60vh;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
   background-image: url('${({ image }) => image}');
 `
 
 const BlogHeadName = styled.div`
   position: absolute;
   bottom: 0;
-  padding: 10vh;
+  padding: 7vh;
   left: 0;
   right: 0;
   background-image: linear-gradient(0deg, #000c 0%, #0000 100%);

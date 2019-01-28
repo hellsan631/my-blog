@@ -3,8 +3,8 @@ const Colors = {
   background: '#f7f7f7',
   main: '#eeeeee',
   text: {
-    light: '#fff',
-    dark: '#333',
+    light: '#ffffff',
+    dark: '#333333',
   },
   accents: [
     '#393e46',

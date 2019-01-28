@@ -6,14 +6,26 @@ import Shadows from '../../theme/Shadows'
 
 const PostName = styled.div`
   position: absolute;
-  top: 3vh;
-  left: 4vh;
-  padding: 0.5vh 1.5vw;
-  min-width: 15vw;
-  background: ${Colors.accents[0]};
+  bottom: 0vh;
+  left: 0vh;
+  right: 0vh;
+  padding: 2.5vh 1.5vw;
+  font-size: 1.2em;
+  background: ${Colors.accents[0]}ee;
   color: ${Colors.text.light};
   ${Shadows.z[0]};
   transition: all ease-out 225ms;
+
+  h3, h6 {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  h6 {
+    margin: 0 0.6em;
+    color: ${Colors.text.light}aa;
+  }
 `
 
 const PostImage = styled.div`
@@ -26,8 +38,9 @@ const PostImage = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  filter: grayscale(0.5);
   background-image: url('${({ image }) => image}');
-  transition: all ease-out 125ms;
+  transition: all ease-out 175ms;
 `
 
 const PostItemContainer = styled.div`
@@ -36,16 +49,24 @@ const PostItemContainer = styled.div`
   width: 40vw;
   margin: 4vw;
   border-radius: 1vw;
+  overflow: hidden;
   ${Shadows.z[1]};
-  transition: all cubic-bezier(.47,1.64,.41,.8) 575ms;
+  transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
   cursor: pointer;
 
   :hover {
     transform: scale(1.03);
-    ${Shadows.z[2]};
+    box-shadow: 0 4px 30px ${Colors.code.yellow}45;
+
+    ${PostImage} {
+      filter: grayscale(0.2);
+    }
 
     ${PostName} {
-      transform: scale(1.07);
+      transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
+      transform: scale(0.95);
+      bottom: 2em;
+      left: 0;
     }
   }
 `
