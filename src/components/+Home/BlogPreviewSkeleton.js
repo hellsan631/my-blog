@@ -1,17 +1,19 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
-import { BlogItemContainer } from './BlogPreviewItem'
+import { BlogPreviewContainer } from './styles/BlogPreviewStyled';
 
 const widthWeight = (original, weight = 1.0) => original * weight;
 
-const BlogSkeleton = ({ weight, ...props}) => (
-  <BlogItemContainer>
+const BlogPreviewSkeleton = ({ weight, ...props}) => (
+  <BlogPreviewContainer>
     <ContentLoader
       height={'100%'}
       width={'100%'}
       speed={2}
       primaryColor="#f3f3f3"
       secondaryColor="#ecebeb"
+      viewBox="0 0 340 340"
+      preserveAspectRatio="none"
       {...props}
     >
       <rect x="-9.44" y="-58.43" rx="5" ry="5" width="540" height="95"
@@ -30,7 +32,7 @@ const BlogSkeleton = ({ weight, ...props}) => (
       <rect x="24" y="310" rx="4" ry="4"
         width={widthWeight(245, weight)} height="15.56" />
     </ContentLoader>
-  </BlogItemContainer>
+  </BlogPreviewContainer>
 )
 
-export default BlogSkeleton
+export default BlogPreviewSkeleton

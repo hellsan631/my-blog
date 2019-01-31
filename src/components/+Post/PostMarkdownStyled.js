@@ -5,7 +5,7 @@ const PostMarkdownStyled = css`
   font-size: 1.1em;
   line-height: 1.8em;
 
-  .highlight {
+  .highlight, [highlight] {
     color: ${Colors.code.green};
     background: ${Colors.code.green}27;
     padding: 0.15em 0.3em;

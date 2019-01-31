@@ -1,7 +1,7 @@
 import React from 'react'
 import Markdown from '../Markdown'
 
-import BlogTextStyled from './BlogTextStyled';
+import BlogTextStyled from './styles/BlogTextStyled';
 
 const  BlogText = ({ text }) => (
   <BlogTextStyled>

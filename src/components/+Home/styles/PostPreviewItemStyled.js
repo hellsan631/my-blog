@@ -1,10 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Colors from '../../theme/Colors'
-import Shadows from '../../theme/Shadows'
+import Colors from '../../../theme/Colors'
+import Shadows from '../../../theme/Shadows'
 
-const PostName = styled.div`
+export const PostPreviewName = styled.div`
   position: absolute;
   bottom: 0vh;
   left: 0vh;
@@ -14,7 +12,8 @@ const PostName = styled.div`
   background: ${Colors.accents[0]}ee;
   color: ${Colors.text.light};
   ${Shadows.z[0]};
-  transition: all ease-out 225ms;
+  transition: all ease-out 225ms, border-radius ease-out 0.5s;
+  border-radius: 0;
 
   h3, h6 {
     display: inline-block;
@@ -28,7 +27,7 @@ const PostName = styled.div`
   }
 `
 
-const PostImage = styled.div`
+export const PostPreviewImage = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
@@ -43,47 +42,40 @@ const PostImage = styled.div`
   transition: all ease-out 175ms;
 `
 
-const PostItemContainer = styled.div`
+export const PostPreviewContainer = styled.div`
   position: relative;
-  height: 40vh;
-  width: 40vw;
-  margin: 4vw;
-  border-radius: 1vw;
+  height: 20em;
+  /* width: 33%; */
+  margin: 2em 3em;
+  flex-basis: calc(50% - 6em);
+  -ms-flex: auto;
+  min-width: 250px;
+  box-sizing: border-box;
+  border-radius: 0.7em;
   overflow: hidden;
   ${Shadows.z[1]};
   transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
   cursor: pointer;
 
+  a {
+    display: block;
+    width: auto;
+  }
+
   :hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
     box-shadow: 0 4px 30px ${Colors.code.yellow}45;
 
-    ${PostImage} {
+    ${PostPreviewImage} {
       filter: grayscale(0.2);
     }
 
-    ${PostName} {
-      transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
-      transform: scale(0.95);
-      bottom: 2em;
+    ${PostPreviewName} {
+      transition: all ease-out 225ms, border-radius ease-out 1s;
+      transform: scale(0.94);
+      bottom: 1em;
       left: 0;
+      border-radius: 6.0em;
     }
   }
 `
-const createLink = (id) => `/post/${id}`
-
-const PostItem = ({ _id, name, source, image: { url } }) => (
-  <Link to={createLink(_id)}>
-    <PostItemContainer>
-      <PostImage
-        image={url}
-      />
-      <PostName>
-        <h3>{name}</h3>
-        <h6>{source}</h6>
-      </PostName>
-    </PostItemContainer>
-  </Link>
-)
-
-export default PostItem

@@ -50,7 +50,6 @@ const MarkdownStyled = styled.div`
     overflow: auto;
     border-radius: 0 0 0.5em 0.5em;
 
-
     &.line-numbers {
       padding-left: 3.5em !important;
 

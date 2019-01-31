@@ -1,21 +1,16 @@
 import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
-import styled from 'styled-components'
 import QueryHandler from '../utils/QueryHandler'
-import ListHeader from '../ListHeader'
+import ListHeader, { ListContainer } from './ListHeader'
 import BlogPreviewItem from './BlogPreviewItem'
-import BlogSkeleton from './BlogSkeleton'
+import BlogPreviewSkeleton from './BlogPreviewSkeleton'
 
-const BlogStyled = styled.div`
-  display: flex;
-  margin: 1vh 2vw;
-`
 
-const BlogSkeletonList = () => (
-  <BlogStyled>
+const SkeletonList = () => (
+  <Fragment>
     {
       [1, 2, 3].map((index) => 
-        <BlogSkeleton
+        <BlogPreviewSkeleton
           key={index}
           weight={0.74}
           primaryColor="#e3e3e3"
@@ -23,11 +18,11 @@ const BlogSkeletonList = () => (
         />
       )
     }
-  </BlogStyled>
+  </Fragment>
 )
 
-const BlogContainer = ({ data: { posts } }) => (
-  <BlogStyled>
+const BlogList = ({ data: { posts } }) => (
+  <Fragment>
     {
       [...posts]
         .sort((a, b) => {
@@ -41,25 +36,25 @@ const BlogContainer = ({ data: { posts } }) => (
           />
         )
     }
-  </BlogStyled>
+  </Fragment>
 )
 
-const BlogList = ({ query }) => (
-  <Fragment>
-    <ListHeader>Recent Blog Posts</ListHeader>
+const BlogPreviewList = ({ query }) => (
+  <ListContainer>
+    <ListHeader>Blog.</ListHeader>
     <Query
       query={query}
     >
         {
           (props) =>
             QueryHandler({
-              component: BlogContainer,
-              loadingComponent: BlogSkeletonList,
+              component: BlogList,
+              loadingComponent: SkeletonList,
               ...props,
             })
         }
     </Query>
-  </Fragment>
+  </ListContainer>
 )
 
-export default BlogList
+export default BlogPreviewList
