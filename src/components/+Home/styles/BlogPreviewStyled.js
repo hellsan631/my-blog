@@ -2,19 +2,23 @@ import styled from 'styled-components'
 import Colors from '../../../theme/Colors'
 import Shadows from '../../../theme/Shadows'
 
-export const BlogPreviewName = styled.div`
+export const BlogPreviewName = styled.h3`
   position: absolute;
-  top: 5.5vh;
+  top: 4em;
   left: 0vh;
-  padding: 0.5vh 1.5vw;
-  min-width: 5vw;
-  max-width: 65%;
+  padding: 1.0em 1.6em;
+  margin: 0;
+  min-width: 5em;
+  max-width: 100%;
+  font-family: 'Aleo', serif;
+  font-weight: 700;
   transition: all ease-out 225ms;
 `
 
 export const BlogPreviewContainer = styled.article`
   position: relative;
   height: 25em;
+  max-width: 25em;
   width: 25vw;
   min-width: 16em;
   margin: 2em 3em;
@@ -34,8 +38,9 @@ export const BlogPreviewContainer = styled.article`
 
 export const BlogPreviewDescription = styled.summary`
   position: relative;
-  margin-top: 13vh;
-  padding: 0.5vh 1.5vw;
+  margin-top: 7.5em;
+  padding: 0.5em 1.9em;
+  font-family: Lato, sans-serif;
 `
 
 export const BlogPreviewCategories = styled.summary`
@@ -43,5 +48,6 @@ export const BlogPreviewCategories = styled.summary`
   bottom: 2vh;
   left: 0vh;
   right: 0vh;
-  padding: 0.5vh 1.5vw;
+  padding: 0.5em 1.5em;
+  font-family: Lato, sans-serif;
 `

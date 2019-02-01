@@ -20,7 +20,7 @@ const BlogPreviewItem = ({ _id, name, image: { url }, blurb, category = [] }) =>
           image={url}
         />
         <BlogPreviewName>
-          <h3>{name}</h3>
+          {name}
         </BlogPreviewName>
         <BlogPreviewDescription>
           <ReactMarkdown

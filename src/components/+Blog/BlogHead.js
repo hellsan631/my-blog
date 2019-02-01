@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
 import { BlogHeadImage, BlogHeadName } from './styles/BlogHeadStyled';
 
-const BlogHead = ({ name, source, category, image: { url } }) => (
+const BlogHead = ({ name, source, category = [], image: { url } }) => (
   <Fragment>
     <Helmet>
       <title>{name} - Blog | Mathew Kleppin</title>
@@ -12,7 +12,11 @@ const BlogHead = ({ name, source, category, image: { url } }) => (
     >
       <BlogHeadName>
         <h1>{name}</h1>
-        <h5>{source}</h5>
+        <h5>
+          {category.map(({ name }) => (
+            <span category>{name}</span>
+          ))}
+        </h5>
       </BlogHeadName>
     </BlogHeadImage>
   </Fragment>

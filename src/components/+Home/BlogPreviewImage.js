@@ -7,7 +7,7 @@ const ImageContainer = styled.div`
   left: -2vh;
   right: -2vh;
   height: 26%;
-  transform: rotate(6deg);
+  transform: rotate(5deg);
   overflow: hidden;
 `
 
@@ -17,7 +17,7 @@ const Image = styled.div`
   left: 0%;
   right: -50%;
   bottom: -50%;
-  transform: rotate(-6deg);
+  transform: rotate(-5deg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top left;

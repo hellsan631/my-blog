@@ -243,6 +243,7 @@ const MarkdownStyled = styled.div`
     ${Shadows.z[2]};
     border-radius: 0.5em;
     padding-top: 2.4em;
+    font-family: 'Nerd Font', sans-serif;
     background:
       radial-gradient(
         7px at 20px 1em, #ff5e57 0px, #ff635a 5px, #888 6px, rgba(255, 255, 255, 0) 7px
