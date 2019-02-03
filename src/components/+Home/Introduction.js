@@ -24,6 +24,7 @@ const Brick = styled.div`
   background: ${({ color }) => color};
   mix-blend-mode: multiply;
   animation: w70 1s cubic-bezier(.47,1.64,.41,.8) forwards;
+  animation-delay: 2s;
   
   @keyframes w70 {
     from { 
