@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
-import QueryHandler from '../utils/QueryHandler'
-import ListHeader, { ListContainer } from './ListHeader'
+import QueryHandler from '../../models/QueryHandler'
+import ListHeader, { ListContainer } from '../ListHeader'
 import PostPreviewItem from './PostPreviewItem'
 import PostPreviewSkeleton from './PostPreviewSkeleton';
 
@@ -19,7 +19,7 @@ const SkeletonList = () => (
   </Fragment>
 )
 
-const ItemList = ({ data: { posts } }) => (
+const ItemList = ({ posts }) => (
   <Fragment>
     {
       [...posts]

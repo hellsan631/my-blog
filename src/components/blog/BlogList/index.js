@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
-import QueryHandler from '../utils/QueryHandler'
-import ListHeader, { ListContainer } from './ListHeader'
-import BlogPreviewItem from './BlogPreviewItem'
-import BlogPreviewSkeleton from './BlogPreviewSkeleton'
-
+import ListHeader, { ListContainer } from '../../ListHeader'
+import BlogPreviewCard from '../BlogPreviewCard'
+import CardSkeleton from './skeleton'
+import QueryHandler from '../../../models/QueryHandler'
+import { SingleBlogQuery } from '../../../models/WorkQL';
 
 const SkeletonList = () => (
   <Fragment>
     {
       [1, 2, 3].map((index) => 
-        <BlogPreviewSkeleton
+        <CardSkeleton
           key={index}
           weight={0.74}
           primaryColor="#e3e3e3"
@@ -21,7 +21,7 @@ const SkeletonList = () => (
   </Fragment>
 )
 
-const BlogList = ({ data: { posts } }) => (
+const ItemList = ({ posts, client, onMouseOver }) => (
   <Fragment>
     {
       [...posts]
@@ -30,7 +30,13 @@ const BlogList = ({ data: { posts } }) => (
         })
         .splice(0, 3)
         .map((props) => 
-          <BlogPreviewItem
+          <BlogPreviewCard
+            onMouseOver={() => {
+              client.query({
+                query: SingleBlogQuery(props._id),
+              })
+              onMouseOver && onMouseOver(props)
+            }}
             key={props._id}
             {...props}
           />
@@ -39,7 +45,7 @@ const BlogList = ({ data: { posts } }) => (
   </Fragment>
 )
 
-const BlogPreviewList = ({ query }) => (
+const BlogList = ({ query, onMouseOver = () => {} }) => (
   <ListContainer>
     <ListHeader>Blog.</ListHeader>
     <Query
@@ -48,13 +54,14 @@ const BlogPreviewList = ({ query }) => (
         {
           (props) =>
             QueryHandler({
-              component: BlogList,
+              component: ItemList,
               loadingComponent: SkeletonList,
               ...props,
+              onMouseOver,
             })
         }
     </Query>
   </ListContainer>
 )
 
-export default BlogPreviewList
+export default BlogList

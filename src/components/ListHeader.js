@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Colors from '../../theme/Colors';
+import Colors from '../theme/Colors';
 
 const ListHeaderStyled = styled.h2`
   display: flex;

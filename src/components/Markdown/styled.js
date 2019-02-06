@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Shadows from '../theme/Shadows'
-import { CodeColor } from '../theme/Colors'
+import Shadows from '../../theme/Shadows'
+import { CodeColor } from '../../theme/Colors'
 
 const MarkdownStyled = styled.div`
   pre[class*="language-"],

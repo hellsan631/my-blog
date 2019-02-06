@@ -1,14 +1,14 @@
 import React from 'react'
-import Markdown from '../Markdown'
+import Markdown from '../../Markdown'
 
-import BlogTextStyled from './styles/BlogTextStyled';
+import { BlogTextContainer } from './styled';
 
 const  BlogText = ({ text }) => (
-  <BlogTextStyled>
+  <BlogTextContainer>
     <Markdown
       source={text}
     />
-  </BlogTextStyled>
+  </BlogTextContainer>
 );
 
 export default BlogText

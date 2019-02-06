@@ -3,7 +3,7 @@ import {
   LineNumbers,
   ShowLanguage,
   Toolbar,
-} from './utils/prism'
+} from './plugins'
 
 export const plugins = [
   {

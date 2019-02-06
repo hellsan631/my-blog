@@ -1,6 +1,5 @@
 import React from 'react'
 import NavItem from './NavItem'
-import Routes from '../../Routes'
 import styled from 'styled-components'
 
 export const NavBarContainer = styled.nav`
@@ -20,21 +19,22 @@ export const NavBarHeader = styled.header`
   width: 100%;
 `
 
-const RouteList = Routes
-  .filter(({ name }) => name)
-  .map(({ path, name }, index) => (
-    <NavItem
-      key={index}
-      name={name}
-      to={path}
-    />
-  ))
-
-const NavBar = () => (
+const NavBar = (RouteList) => () => (
   <NavBarHeader>
     <NavBarContainer>
-      {RouteList}
+      {
+        RouteList.map(
+          ({ path, name }, index) => (
+            <NavItem
+              key={index}
+              name={name}
+              to={path}
+            />
+          )
+        )
+      }
     </NavBarContainer>
   </NavBarHeader>
 )
+
 export default NavBar

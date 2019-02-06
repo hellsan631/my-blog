@@ -1,12 +1,16 @@
 import React, { Fragment } from 'react'
-import { SingleBlogQuery } from '../models/WorkQL'
 import { Query } from 'react-apollo'
-import QueryHandler from '../components/utils/QueryHandler'
-import BlogHead from '../components/+Blog/BlogHead'
-import BlogText from '../components/+Blog/BlogText';
+import { Helmet } from 'react-helmet'
+import { SingleBlogQuery } from '../models/WorkQL'
+import QueryHandler from '../models/QueryHandler'
+import BlogHead from '../components/blog/BlogHead';
+import BlogText from '../components/blog/BlogText';
 
-const BlogPageItem = ({ data: { post } }) => (
+const BlogPageItem = ({ post }) => (
   <Fragment>
+    <Helmet>
+      <title>{post.name}</title>
+    </Helmet>
     <BlogHead
       {...post}
     />

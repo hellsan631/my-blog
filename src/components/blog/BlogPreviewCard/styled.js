@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import Colors from '../../../theme/Colors'
-import Shadows from '../../../theme/Shadows'
+import { withTheme } from '../../context/withTheme';
 
 export const BlogPreviewName = styled.h3`
   position: absolute;
@@ -15,7 +14,7 @@ export const BlogPreviewName = styled.h3`
   transition: all ease-out 225ms;
 `
 
-export const BlogPreviewContainer = styled.article`
+export const BlogPreviewContainer = withTheme(styled.article`
   position: relative;
   height: 25em;
   max-width: 25em;
@@ -24,17 +23,17 @@ export const BlogPreviewContainer = styled.article`
   margin: 2em 3em;
   box-sizing: border-box;
   border-radius: 0.7em;
-  ${Shadows.z[1]};
+  ${({ theme: { Shadows } }) => Shadows.z[1]};
   transition: all ease-out 175ms;
   cursor: pointer;
   overflow: hidden;
-  color: ${Colors.text.dark};
+  color: ${({ theme: { Colors } }) => Colors.text.dark};
 
   & > svg {
     height: 100%;
     width: 100%;
   }
-`
+`)
 
 export const BlogPreviewDescription = styled.summary`
   position: relative;

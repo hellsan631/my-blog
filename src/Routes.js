@@ -1,8 +1,8 @@
-import AsyncComponent from './AsyncComponent'
+import { lazy } from 'react'
 
-const PostPage = AsyncComponent('./pages/PostPage')
-const BlogPage = AsyncComponent('./pages/BlogPage')
-const HomePage = AsyncComponent('./pages/HomePage')
+const PostPage = lazy(() => import('./pages/PostPage'))
+const BlogPage = lazy(() => import('./pages/BlogPage'))
+const HomePage = lazy(() => import('./pages/HomePage'))
 
 const Routes = [
   {

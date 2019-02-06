@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { SingleBlogQuery } from '../models/WorkQL'
 import { Query } from 'react-apollo'
-import QueryHandler from '../components/utils/QueryHandler'
+import QueryHandler from '../models/QueryHandler'
 import PostHeader from '../components/+Post/PostHeader'
 import PostText from '../components/+Post/PostText';
 

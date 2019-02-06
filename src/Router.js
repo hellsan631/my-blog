@@ -1,12 +1,9 @@
 import React, { Suspense, Fragment } from 'react'
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
-import NavBar from './components/Navigation/NavBar'
+import NavBar from './components/NavBar'
 import Routes from './Routes';
-import ScrollToTop from './components/utils/ScrollToTop';
-
-const LoadingMessage = () => (
-  "I'm loading..."
-)
+import ScrollToTop from './components/ScrollToTop';
+import Loading from './components/Loading';
 
 const RouteWithSubRoutes = ({ path, routes, Component }) => {
   return (
@@ -20,12 +17,16 @@ const RouteWithSubRoutes = ({ path, routes, Component }) => {
   );
 }
 
+const Navigation = NavBar(
+  Routes.filter(({ name }) => name)
+)
+
 const Router = () => (
   <BrowserRouter>
     <Fragment>
       <ScrollToTop />
-      <NavBar />
-      <Suspense fallback={<LoadingMessage />}>
+      <Navigation />
+      <Suspense fallback={<Loading />}>
         <Switch>
           {Routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />

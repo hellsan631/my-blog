@@ -4,9 +4,11 @@ const QueryHandler = ({
   loading,
   error,
   data,
+  client,
   component: Component,
   loadingComponent: LoadingComponent,
   errorComponent: ErrorComponent,
+  ...props,
 }) => {
   if (loading) {
     return LoadingComponent ? 
@@ -21,7 +23,9 @@ const QueryHandler = ({
 
   return (
     <Component
-      data={data}
+      {...data}
+      {...props}
+      client={client}
     />
   )
 }

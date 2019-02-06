@@ -1,8 +1,7 @@
-
 import styled from 'styled-components'
-import Colors from '../../../theme/Colors';
+import { withTheme } from '../../context/withTheme'
 
-export const BlogHeadName = styled.div`
+export const BlogName = withTheme(styled.div`
   position: absolute;
   bottom: 0;
   padding: 7vh;
@@ -30,12 +29,11 @@ export const BlogHeadName = styled.div`
     font-family: 'Nerd Font', sans-serif;
     font-style: italic;
     font-weight: 600;
-    color: ${Colors.code.green}
+    color: ${({ theme: { Colors } }) => Colors.code.green};
   }
+`)
 
-`
-
-export const BlogHeadImage = styled.div`
+export const BlogImage = styled.div`
   position: relative;
   width: 100vw;
   height: 60vh;

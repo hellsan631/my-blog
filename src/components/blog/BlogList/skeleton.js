@@ -1,10 +1,10 @@
 import React from 'react'
 import ContentLoader from 'react-content-loader'
-import { BlogPreviewContainer } from './styles/BlogPreviewStyled';
+import { BlogPreviewContainer } from '../BlogPreviewCard/styled';
 
 const widthWeight = (original, weight = 1.0) => original * weight;
 
-const BlogPreviewSkeleton = ({ weight, ...props}) => (
+const CardSkeleton = ({ weight, ...props}) => (
   <BlogPreviewContainer>
     <ContentLoader
       height={'100%'}
@@ -35,4 +35,4 @@ const BlogPreviewSkeleton = ({ weight, ...props}) => (
   </BlogPreviewContainer>
 )
 
-export default BlogPreviewSkeleton
+export default CardSkeleton

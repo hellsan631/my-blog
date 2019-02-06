@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import Colors from '../../../theme/Colors';
+import { withTheme } from '../../context/withTheme'
 
-const BlogTextStyled = styled.div`
+export const BlogTextContainer = withTheme(styled.div`
   max-width: 960px;
   width: 100%;
   margin: 3em auto;
@@ -24,7 +24,7 @@ const BlogTextStyled = styled.div`
   }
 
   span.highlight {
-    background-color: ${Colors.code.green};
+    background-color: ${({ theme: { Colors } }) => Colors.code.green};
     color: rgba(0,0,0,1);
     padding: 0.15em 0.3em;
     opacity: 0.7;
@@ -72,6 +72,4 @@ const BlogTextStyled = styled.div`
       }
     }
   }
-`
-
-export default BlogTextStyled
+`)

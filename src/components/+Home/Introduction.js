@@ -15,16 +15,17 @@ const Container = styled.div`
 
 const Brick = styled.div`
   width: ${({ width }) => width};
-  height: 0.8em;
+  height: 0.7em;
   position: absolute;
-  transform: rotate(${({ rotate }) => rotate || 0});
   top: ${({ top }) => top};
   left: auto;
   right: auto;
   background: ${({ color }) => color};
   mix-blend-mode: multiply;
-  animation: w70 1s cubic-bezier(.47,1.64,.41,.8) forwards;
-  animation-delay: 2s;
+  animation: w70 1.0s cubic-bezier(.47,1.64,.41,.8) forwards;
+  animation-delay: 0.5s;
+  transform: scaleX(0);
+  opacity: 0;
   
   @keyframes w70 {
     from { 
