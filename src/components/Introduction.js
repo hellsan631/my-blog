@@ -59,6 +59,7 @@ const Who = styled.h2`
   margin-bottom: 0.4em;
   font-size: 2.9em;
   font-family: 'Aleo', serif;
+  font-display: auto;
   color: #444;
   padding: 0 4vh;
   @media (max-width: 1000px) {
