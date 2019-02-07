@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Query } from 'react-apollo'
 import QueryHandler from '../../../models/QueryHandler'
 import ListHeader, { ListContainer } from '../../ListHeader'
@@ -39,6 +39,7 @@ const ItemList = ({ posts, client, onMouseOver }) => (
           <PostPreviewCard
             className={columns}
             onMouseOver={() => {
+              console.log(onMouseOver)
               client.query({
                 query: SingleBlogQuery(props._id),
               })
@@ -52,7 +53,7 @@ const ItemList = ({ posts, client, onMouseOver }) => (
   </div>
 )
 
-const PostPreviewList = ({ query }) => (
+const PostPreviewList = ({ query, onMouseOver = () => {} }) => (
   <ListContainer>
     <ListHeader>Work.</ListHeader>
     <Query
@@ -64,6 +65,7 @@ const PostPreviewList = ({ query }) => (
               component: ItemList,
               loadingComponent: SkeletonList,
               ...props,
+              onMouseOver,
             })
         }
     </Query>

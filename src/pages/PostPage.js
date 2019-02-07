@@ -5,7 +5,7 @@ import QueryHandler from '../models/QueryHandler'
 import PostHeader from '../components/+Post/PostHeader'
 import PostText from '../components/+Post/PostText';
 
-const PostPageItem = ({ data: { post } }) => (
+const PostPageItem = ({ post }) => (
   <Fragment>
     <PostHeader 
       {...post}

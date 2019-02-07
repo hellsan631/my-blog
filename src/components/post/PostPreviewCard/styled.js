@@ -7,7 +7,7 @@ export const PostPreviewName = styled.div`
   bottom: 0vh;
   left: 0vh;
   right: 0vh;
-  padding: 2.5vh 1.5vw;
+  padding: 1.0em 1.5em;
   font-size: 1.2em;
   background: ${Colors.accents[0]}ee;
   color: ${Colors.text.light};
