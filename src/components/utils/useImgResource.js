@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const getCloudinaryUrl = (filename, width = 250) => {
-  const base = 'http://res.cloudinary.com/laurabaker/image/upload'
+  const base = 'https://res.cloudinary.com/laurabaker/image/upload'
   const formats = {
     eco: `c_limit,f_auto,fl_apng.awebp,q_auto:low,w_${width}`,
     ecoFull: `c_limit,f_auto,fl_apng.awebp,q_auto:low,w_1024`,
