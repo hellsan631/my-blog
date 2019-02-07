@@ -12,6 +12,8 @@ export const PostQuery = gql`
       name
       image {
         url
+        hash
+        ext
       }
       source
     }
@@ -30,6 +32,8 @@ export const BlogQuery = gql`
       name
       image {
         url
+        hash
+        ext
       }
       createdOn
       blurb
@@ -48,6 +52,8 @@ export const SingleBlogQuery = (_id) =>
         name
         image {
           url
+          hash
+          ext
         }
         createdOn
         blurb

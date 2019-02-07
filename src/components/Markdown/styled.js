@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Shadows from '../../theme/Shadows'
 import { CodeColor } from '../../theme/Colors'
 
-const MarkdownStyled = styled.div`
+const MarkdownContainer = styled.div`
   pre[class*="language-"],
   code[class*="language-"] {
     color: #f8f8f2;
@@ -260,4 +260,4 @@ const MarkdownStyled = styled.div`
   }
 `
 
-export default MarkdownStyled
+export default MarkdownContainer

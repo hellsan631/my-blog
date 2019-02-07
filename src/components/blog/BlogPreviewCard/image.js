@@ -28,7 +28,7 @@ const Image = styled.div`
 function BlogPreviewImage({ image }) {
   const imageUrl = useImgResource({
     image,
-  }, 'eco', 'eco');
+  }, 'med');
   return (
     <ImageContainer>
       <Image
