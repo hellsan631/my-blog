@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 import { SingleBlogQuery } from '../models/WorkQL'
 import { Query } from 'react-apollo'
 import QueryHandler from '../models/QueryHandler'
-import PostHeader from '../components/+Post/PostHeader'
-import PostText from '../components/+Post/PostText';
+import PostHeader from '../components/post/PostHeader'
+import PostText from '../components/post/PostText';
 
 const PostPageItem = ({ post }) => (
   <Fragment>

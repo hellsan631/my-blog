@@ -39,7 +39,6 @@ const ItemList = ({ posts, client, onMouseOver }) => (
           <PostPreviewCard
             className={columns}
             onMouseOver={() => {
-              console.log(onMouseOver)
               client.query({
                 query: SingleBlogQuery(props._id),
               })

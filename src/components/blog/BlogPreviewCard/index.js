@@ -12,7 +12,7 @@ import {
 
 const createLink = (id) => `/blog/${id}`
 
-const BlogPreviewItem = ({ className, onMouseOver, _id, name, image: { url }, blurb, category = [] }) => (
+const BlogPreviewItem = ({ className, onMouseOver, _id, name, image, blurb, category = [] }) => (
   <SpringCard
     className={className}
   >
@@ -22,7 +22,7 @@ const BlogPreviewItem = ({ className, onMouseOver, _id, name, image: { url }, bl
     >
       <BlogPreviewContainer>
         <BlogPreviewImage
-          image={url}
+          image={image}
         />
         <BlogPreviewName>
           {name}

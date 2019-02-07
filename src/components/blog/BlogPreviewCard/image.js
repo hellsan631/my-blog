@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useImgResource } from '../../utils/useImgResource';
 
 const ImageContainer = styled.div`
   position: absolute;
@@ -21,15 +22,21 @@ const Image = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top left;
-  background-image: url('${({ image }) => image}');
+  background-image: url('${({ src }) => src}');
 `
 
-const BlogPreviewImage = ({ image }) => (
-  <ImageContainer>
-    <Image
-      image={image}
-    />
-  </ImageContainer>
-)
+function BlogPreviewImage({ image }) {
+  const imageUrl = useImgResource({
+    image,
+  }, 'eco', 'eco');
+  return (
+    <ImageContainer>
+      <Image
+        src={imageUrl}
+      />
+    </ImageContainer>
+  )
+} 
+
 
 export default BlogPreviewImage;
