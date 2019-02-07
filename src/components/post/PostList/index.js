@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
-import ListHeader, { ListContainer } from '../../ListHeader'
-import BlogPreviewCard from '../BlogPreviewCard'
-import CardSkeleton from './skeleton'
 import QueryHandler from '../../../models/QueryHandler'
+import ListHeader, { ListContainer } from '../../ListHeader'
+import PostPreviewCard from '../PostPreviewCard'
+import CardSkeleton from './skeleton'
 import { SingleBlogQuery } from '../../../models/WorkQL';
+
+const columns =`
+  col-xs-12
+  col-sm-12
+  col-md-6
+  col-lg-6
+` 
 
 const SkeletonList = () => (
   <div className="row">
     {
-      [1, 2, 3].map((index) => 
+      [1, 2].map((index) => 
         <CardSkeleton
           key={index}
-          className="
-            col-xs-12
-            col-sm-12
-            col-md-4
-            col-lg-3
-          "
-          weight={0.74}
+          className={columns}
           primaryColor="#e3e3e3"
           secondaryColor="#dcdbdb"
         />
@@ -32,17 +33,11 @@ const ItemList = ({ posts, client, onMouseOver }) => (
     {
       [...posts]
         .sort((a, b) => {
-          return new Date(b.createdOn) - new Date(a.createdOn);
+          return new Date(b.createdOn) - new Date(a.createdOn)
         })
-        .splice(0, 3)
         .map((props) => 
-          <BlogPreviewCard
-            className="
-              col-xs-12
-              col-sm-12
-              col-md-4
-              col-lg-3
-            "
+          <PostPreviewCard
+            className={columns}
             onMouseOver={() => {
               client.query({
                 query: SingleBlogQuery(props._id),
@@ -57,9 +52,9 @@ const ItemList = ({ posts, client, onMouseOver }) => (
   </div>
 )
 
-const BlogList = ({ query, onMouseOver = () => {} }) => (
+const PostPreviewList = ({ query }) => (
   <ListContainer>
-    <ListHeader>Blog.</ListHeader>
+    <ListHeader>Work.</ListHeader>
     <Query
       query={query}
     >
@@ -69,11 +64,10 @@ const BlogList = ({ query, onMouseOver = () => {} }) => (
               component: ItemList,
               loadingComponent: SkeletonList,
               ...props,
-              onMouseOver,
             })
         }
     </Query>
   </ListContainer>
 )
 
-export default BlogList
+export default PostPreviewList

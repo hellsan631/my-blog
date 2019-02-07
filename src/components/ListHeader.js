@@ -4,7 +4,7 @@ import Colors from '../theme/Colors';
 
 const ListHeaderStyled = styled.h2`
   display: flex;
-  margin: 0em 2em;
+  margin: 0em 2vh;
   padding: 0;
   flex-basis: 100%;
   font-family: Lato, sans-serif;
@@ -36,11 +36,20 @@ export const BrickText = styled.span`
 `
 
 export const ListContainer = styled.section`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
   max-width: 1600px;
-  margin: 5em auto;
+  padding: 2vh;
+  margin: 2em auto;
+  width: auto;
+
+  .row {
+    margin-right: 0rem; 
+    margin-left: 0rem;
+    
+    & > * {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
 `
 
 const ListHeader = ({ children }) => (

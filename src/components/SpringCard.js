@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { useSpring, animated } from 'react-spring'
 
-function SpringCard({ children }) {
+function SpringCard({ children, ...props }) {
   // We add this ref to card element and use in onMouseMove event ...
   // ... to get element's offset and dimensions.
   const ref = useRef()
@@ -22,6 +22,7 @@ function SpringCard({ children }) {
 
   return (
     <animated.div
+      {...props}
       ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseMove={({ clientX, clientY }) => {

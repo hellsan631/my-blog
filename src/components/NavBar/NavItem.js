@@ -6,10 +6,10 @@ import Colors from '../../theme/Colors'
 const NavItemContainer = styled.div`
   font-size: 0.9em;
   text-align: center;
-  padding: 1.5em;
+  padding: 1.5em 0;
 
   a {
-    padding: 1.5em;
+    padding: 2vh;
     text-decoration: none;
     color: ${Colors.link};
   }

@@ -4,8 +4,10 @@ import { BlogPreviewContainer } from '../BlogPreviewCard/styled';
 
 const widthWeight = (original, weight = 1.0) => original * weight;
 
-const CardSkeleton = ({ weight, ...props}) => (
-  <BlogPreviewContainer>
+const CardSkeleton = ({ className, weight, ...props}) => (
+  <BlogPreviewContainer
+    className={className}
+  >
     <ContentLoader
       height={'100%'}
       width={'100%'}

@@ -17,15 +17,11 @@ const RouteWithSubRoutes = ({ path, routes, Component }) => {
   );
 }
 
-const Navigation = NavBar(
-  Routes.filter(({ name }) => name)
-)
-
 const Router = () => (
   <BrowserRouter>
     <Fragment>
       <ScrollToTop />
-      <Navigation />
+      <NavBar routes={Routes.filter(({ name }) => name)} />
       <Suspense fallback={<Loading />}>
         <Switch>
           {Routes.map((route, i) => (

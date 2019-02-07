@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Colors from '../../theme/Colors'
+import Colors from '../theme/Colors'
 
 const Container = styled.div`
   display: flex;
@@ -14,10 +14,10 @@ const Container = styled.div`
 `
 
 const Brick = styled.div`
-  width: ${({ width }) => width};
+  width: 42.5em;
   height: 0.7em;
   position: absolute;
-  top: ${({ top }) => top};
+  top: 40.5vh;
   left: auto;
   right: auto;
   background: ${({ color }) => color};
@@ -26,6 +26,11 @@ const Brick = styled.div`
   animation-delay: 0.5s;
   transform: scaleX(0);
   opacity: 0;
+
+  @media (max-width: 1000px) {
+    top: 43.0vh;
+    width: 70vw;
+  }
   
   @keyframes w70 {
     from { 
@@ -46,6 +51,7 @@ const Name = styled.h1`
   letter-spacing: 4px;
   font-family: Lato, sans-serif;
   text-transform: uppercase;
+  padding: 0 4vh;
 `
 
 const Who = styled.h2`
@@ -54,6 +60,11 @@ const Who = styled.h2`
   font-size: 2.9em;
   font-family: 'Aleo', serif;
   color: #444;
+  padding: 0 4vh;
+  @media (max-width: 1000px) {
+    text-align: center;
+    font-size: 2.5em;
+  }
 `
 
 const What = styled.h3`
@@ -64,13 +75,16 @@ const What = styled.h3`
   font-family: 'Nerd Font', monospace;
   font-weight: 600;
   color: ${Colors.code.navy};
+  padding: 0 4vh;
+
+  @media (max-width: 1000px) {
+    text-align: center;
+  }
 `
 
 const Introduction = () => (
   <Container>
     <Brick 
-      width="42.5em"
-      top="40.5vh"
       color={Colors.code.yellow}
     />
     <Name>Mathew Kleppin</Name>

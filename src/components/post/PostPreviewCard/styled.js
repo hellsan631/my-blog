@@ -46,10 +46,8 @@ export const PostPreviewContainer = styled.div`
   position: relative;
   height: 20em;
   /* width: 33%; */
-  margin: 2em 3em;
-  flex-basis: calc(50% - 6em);
+  margin: 2vh;
   -ms-flex: auto;
-  min-width: 250px;
   box-sizing: border-box;
   border-radius: 0.7em;
   overflow: hidden;

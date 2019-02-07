@@ -19,11 +19,11 @@ export const NavBarHeader = styled.header`
   width: 100%;
 `
 
-const NavBar = (RouteList) => () => (
+const NavBar = ({ routes }) => (
   <NavBarHeader>
     <NavBarContainer>
       {
-        RouteList.map(
+        routes.map(
           ({ path, name }, index) => (
             <NavItem
               key={index}

@@ -12,8 +12,10 @@ import {
 
 const createLink = (id) => `/blog/${id}`
 
-const BlogPreviewItem = ({ onMouseOver, _id, name, image: { url }, blurb, category = [] }) => (
-  <SpringCard>
+const BlogPreviewItem = ({ className, onMouseOver, _id, name, image: { url }, blurb, category = [] }) => (
+  <SpringCard
+    className={className}
+  >
     <Link 
       to={createLink(_id)}
       onMouseOver={onMouseOver}

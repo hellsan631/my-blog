@@ -17,10 +17,7 @@ export const BlogPreviewName = styled.h3`
 export const BlogPreviewContainer = withTheme(styled.article`
   position: relative;
   height: 25em;
-  max-width: 25em;
-  width: 25vw;
-  min-width: 16em;
-  margin: 2em 3em;
+  margin: 2vh;
   box-sizing: border-box;
   border-radius: 0.7em;
   ${({ theme: { Shadows } }) => Shadows.z[1]};
