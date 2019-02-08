@@ -39,9 +39,9 @@ export const PostPreviewImage = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  filter: grayscale(0.5);
+  filter: grayscale(0.5) brightness(0.8);
   background-image: url('${({ image }) => image}');
-  transition: all ease-out 175ms;
+  transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
 `
 
 export const PostPreviewContainer = styled.div`
@@ -67,11 +67,11 @@ export const PostPreviewContainer = styled.div`
   }
 
   :hover {
-    z-index: 2;
-    transform: scale(1.02);
-    /* ${Shadows.z[2]}; */
+    /* z-index: 2; */
+        /* ${Shadows.z[2]}; */
 
     ${PostPreviewImage} {
+      transform: scale(1.04);
       filter: grayscale(0.2);
     }
 
