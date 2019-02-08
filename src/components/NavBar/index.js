@@ -17,6 +17,7 @@ export const NavBarHeader = styled.header`
   position: absolute;
   z-index: 5;
   width: 100%;
+  top: 0;
 `
 
 const NavBar = ({ routes }) => (

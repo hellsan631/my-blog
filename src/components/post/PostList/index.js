@@ -55,7 +55,7 @@ const ItemList = ({ posts, client, onMouseOver }) => (
 const PostPreviewList = ({ query, onMouseOver = () => {} }) => (
   <ListContainer>
     <ListHeader
-      color="yellow"
+      color="green"
     >
       Work.
     </ListHeader>

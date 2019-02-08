@@ -1,23 +1,21 @@
 import React, { Suspense, Fragment } from 'react'
-import { PostQuery } from '../models/WorkQL'
-import Introduction from '../components/Introduction';
+import { BlogQuery } from '../models/WorkQL'
 import Loading from '../components/Loading';
 import Lazy from '../components/Lazy';
 
-const PostList = Lazy(() => import('../components/post/PostList'))
-const PostPage = Lazy(() => import('./PostPage'))
+const BlogList = Lazy(() => import('../components/blog/BlogList'))
+const BlogPage = Lazy(() => import('./BlogPage'))
 
 const HomePage = () => (
   <Fragment>
-    <Introduction />
     <Suspense
       fallback={<Loading />}
       maxDuration={300}
     >
-      <PostList
-        query={PostQuery}
+      <BlogList
+        query={BlogQuery}
         onMouseOver={() => {
-          PostPage.preload()
+          BlogPage.preload()
         }}
       />
     </Suspense>

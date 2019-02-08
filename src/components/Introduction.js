@@ -4,6 +4,7 @@ import Colors from '../theme/Colors'
 
 const Container = styled.div`
   display: flex;
+  position: relative;
   margin: 0;
   width: 100%;
   height: 80vh;

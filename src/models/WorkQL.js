@@ -10,6 +10,7 @@ export const PostQuery = gql`
       _id
       createdOn
       name
+      introduction
       image {
         url
         hash

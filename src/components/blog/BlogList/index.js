@@ -34,7 +34,6 @@ const ItemList = ({ posts, client, onMouseOver }) => (
         .sort((a, b) => {
           return new Date(b.createdOn) - new Date(a.createdOn);
         })
-        .splice(0, 3)
         .map((props) => 
           <BlogPreviewCard
             className="
