@@ -4,26 +4,28 @@ import Shadows from '../../../theme/Shadows'
 
 export const PostPreviewName = styled.div`
   position: absolute;
-  bottom: 0vh;
+  top: 10%;
   left: 0vh;
   right: 0vh;
   padding: 1.0em 1.5em;
-  font-size: 1.2em;
-  background: ${Colors.accents[0]}ee;
+  font-size: 1.5em;
   color: ${Colors.text.light};
-  ${Shadows.z[0]};
-  transition: all ease-out 225ms, border-radius ease-out 0.5s;
-  border-radius: 0;
+  text-align: center;
+  transition: all ease-out 400ms;
+
+  h3 {
+    font-family: 'Aleo', serif;
+    font-weight: 700;
+  }
 
   h3, h6 {
-    display: inline-block;
-    margin: 0;
+    margin: 0.4em;
     padding: 0;
   }
 
   h6 {
     margin: 0 0.6em;
-    color: ${Colors.text.light}aa;
+    color: ${Colors.text.light}bb;
   }
 `
 
@@ -33,7 +35,7 @@ export const PostPreviewImage = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  border-radius: 1vw;
+  /* border-radius: 1vw; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -44,16 +46,20 @@ export const PostPreviewImage = styled.div`
 
 export const PostPreviewContainer = styled.div`
   position: relative;
-  height: 20em;
-  /* width: 33%; */
-  margin: 2vh;
+  padding-top: 70%;
+  
+  /* margin: 2vh; */
   -ms-flex: auto;
   box-sizing: border-box;
-  border-radius: 0.7em;
+  /* border-radius: 0.7em; */
   overflow: hidden;
-  ${Shadows.z[1]};
+  /* ${Shadows.z[1]}; */
   transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
   cursor: pointer;
+
+  @media (max-width: 1000px) {
+    padding-top: 70vh;
+  }
 
   a {
     display: block;
@@ -61,19 +67,16 @@ export const PostPreviewContainer = styled.div`
   }
 
   :hover {
-    transform: scale(1.04);
-    box-shadow: 0 4px 30px ${Colors.code.yellow}45;
+    z-index: 2;
+    transform: scale(1.02);
+    /* ${Shadows.z[2]}; */
 
     ${PostPreviewImage} {
       filter: grayscale(0.2);
     }
 
     ${PostPreviewName} {
-      transition: all ease-out 225ms, border-radius ease-out 1s;
-      transform: scale(0.94);
-      bottom: 1em;
-      left: 0;
-      border-radius: 6.0em;
+      transform: scale(1.1);
     }
   }
 `

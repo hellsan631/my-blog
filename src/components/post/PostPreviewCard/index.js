@@ -6,6 +6,8 @@ import {
   PostPreviewName,
 } from './styled';
 import { useImgResource } from '../../utils/useImgResource';
+import { BrickText } from '../../ListHeader';
+import Colors from '../../../theme/Colors';
 
 const createLink = (id) => `/post/${id}`
 
@@ -25,7 +27,13 @@ function PostPreviewCard({ className, onMouseOver, _id, name, source, image }) {
             image={imageUrl}
           />
           <PostPreviewName>
-            <h3>{name}</h3>
+            <h3>
+              <BrickText
+                color={Colors.code.blue}
+              >
+                {name}
+              </BrickText>
+            </h3>
             <h6>{source}</h6>
           </PostPreviewName>
         </Link>
