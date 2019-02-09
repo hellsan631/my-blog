@@ -22,8 +22,7 @@ const getCloudinaryFilenameFromFile = ({ hash, ext }) => `${hash}${ext}`
 
 const loadImage = (src, fallbackOnError) => {
   return new Promise((resolve, reject) => {
-    requestIdleCallback(() => {
-      const image = new Image()
+    const image = new Image()
       image.src = src
       image.onload = () => {
         requestAnimationFrame(() => {
@@ -39,7 +38,6 @@ const loadImage = (src, fallbackOnError) => {
 
         return reject(error)
       }
-    })
   })
 }
  
