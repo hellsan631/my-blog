@@ -68,12 +68,13 @@ export const PostPreviewImage = styled.div`
   background-position: center center;
   filter: grayscale(0.5) brightness(0.7);
   background-image: url('${({ image }) => image}');
+  background-color: ${Colors.code.green}bb;
   transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
 `
 
 export const PostPreviewContainer = styled.div`
   position: relative;
-  padding-top: 70%;
+  padding-top: 50vh;
   
   /* margin: 2vh; */
   -ms-flex: auto;
@@ -84,8 +85,8 @@ export const PostPreviewContainer = styled.div`
   transition: all cubic-bezier(.47,1.64,.41,.8) 600ms;
   cursor: pointer;
 
-  @media (max-width: 1000px) {
-    padding-top: 70vh;
+  @media (max-width: 860px) {
+    padding-top: 60vh;
   }
 
   a {

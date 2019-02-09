@@ -1,4 +1,5 @@
 import React from 'react'
+import Loading from '../components/Loading';
 
 const QueryHandler = ({ 
   loading,
@@ -13,7 +14,7 @@ const QueryHandler = ({
   if (loading) {
     return LoadingComponent ? 
       (<LoadingComponent />) :
-      (<p>Loading...</p>)
+      (<Loading />)
   }
   if (error) {
     return ErrorComponent ? 

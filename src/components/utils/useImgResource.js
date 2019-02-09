@@ -26,7 +26,11 @@ const loadImage = (src, fallbackOnError) => {
       const image = new Image()
       image.src = src
       image.onload = () => {
-        return resolve(src)
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            return resolve(src)
+          })
+        })
       }
       image.onerror = (error) => {
         if (fallbackOnError) {
@@ -47,10 +51,14 @@ export function useImgResource({ image, ref }, quality = 'full', loadingQuality 
 
   const loadImageState = async () => {
     if (ref && ref.current) {
-      ref.current.onload = async () => {
-        setImageLoadedUrl(
-          await loadImage(imageUrls[quality], image.url),
-        )
+      ref.current.onload = () => {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(async () => {
+            setImageLoadedUrl(
+              await loadImage(imageUrls[quality], image.url),
+            )
+          })
+        })
       }
     } else {
       setImageLoadedUrl(

@@ -2,7 +2,7 @@ import React from 'react'
 import ContentLoader from 'react-content-loader'
 import { PostPreviewContainer } from '../PostPreviewCard/styled'
 
-const PostPreviewSkeleton = ({ className, ...props }) => (
+const CardSkeleton = ({ className, ...props }) => (
   <div className={className}>
     <PostPreviewContainer>
       <ContentLoader 
@@ -21,4 +21,4 @@ const PostPreviewSkeleton = ({ className, ...props }) => (
   </div>
 )
 
-export default PostPreviewSkeleton
+export default CardSkeleton
