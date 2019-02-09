@@ -86,7 +86,7 @@ export const PostPreviewContainer = styled.div`
   cursor: pointer;
 
   @media (max-width: 860px) {
-    padding-top: 60vh;
+    padding-top: 65vh;
   }
 
   a {
