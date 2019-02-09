@@ -31,4 +31,8 @@ export const PostMarkdown = css`
     color: ${({ theme: { Colors } }) => Colors.code.blue}99;
     font-style: italic;
   }
+
+  a {
+    color: ${({ theme: { Colors } }) => Colors.code.blue}dd;
+  }
 `
