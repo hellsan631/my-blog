@@ -4,6 +4,7 @@ import Colors from '../theme/Colors';
 
 const CubeOuter = styled.div`
   margin: 40px auto;
+  flex: 1;
   width: ${({ size }) => size};
   height: ${({ size }) => size};
   position: relative;

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import handleViewport from 'react-in-viewport'
+import 'intersection-observer'
 import {
   PostPreviewContainer,
   PostPreviewImage,
