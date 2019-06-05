@@ -1,8 +1,6 @@
-import React from 'react'
-import { SingleBlogQuery } from '../../../models/WorkQL';
+import React, { memo } from 'react'
 import PostPreviewCard from '../PostPreviewCard';
 import CardSkeleton from './skeleton';
-
 
 const columns =`
   col-xs-12
@@ -11,7 +9,7 @@ const columns =`
   col-lg-6
 ` 
 
-export function ItemList({ posts, client, onMouseOver }) {
+function _ItemList({ posts, onMouseOver }) {
   return (
     <div className="row">
       {
@@ -24,9 +22,6 @@ export function ItemList({ posts, client, onMouseOver }) {
               key={props._id}
               className={columns}
               onMouseOver={() => {
-                client.query({
-                  query: SingleBlogQuery(props._id),
-                })
                 onMouseOver && onMouseOver(props)
               }}
               {...props}
@@ -37,7 +32,7 @@ export function ItemList({ posts, client, onMouseOver }) {
   )
 }
 
-export const SkeletonList = () => (
+const _SkeletonList = () => (
   <div className="row">
     {
       [1, 2].map((index) => 
@@ -51,3 +46,6 @@ export const SkeletonList = () => (
     }
   </div>
 )
+
+export const SkeletonList = memo(_SkeletonList)
+export const ItemList = memo(_ItemList)

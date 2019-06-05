@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 const getCloudinaryUrl = (filename, width = 250) => {
   const base = 'https://res.cloudinary.com/laurabaker/image/upload'
@@ -42,28 +42,34 @@ const loadImage = (src, fallbackOnError) => {
 }
  
 export function useImgResource({ image, ref }, quality = 'full', loadingQuality = 'eco') {
-  const imageUrls = getCloudinaryUrl(
-    getCloudinaryFilenameFromFile(image)
-  );
+  const imageUrls = useMemo(() => {
+    return getCloudinaryUrl(
+      getCloudinaryFilenameFromFile(image)
+    )
+  }, [image])
   const [imageLoadedUrl, setImageLoadedUrl] = useState(imageUrls[loadingQuality]);
 
-  const loadImageState = async () => {
-    if (ref && ref.current) {
-      ref.current.onload = () => {
-        requestAnimationFrame(() => {
-          requestAnimationFrame(async () => {
-            setImageLoadedUrl(
-              await loadImage(imageUrls[quality], image.url),
-            )
-          })
-        })
+  const loadImageState = useMemo(() => {
+    return async () => {
+      if (quality !== loadingQuality) {
+        if (ref && ref.current) {
+          ref.current.onload = () => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(async () => {
+                setImageLoadedUrl(
+                  await loadImage(imageUrls[quality], image.url),
+                )
+              })
+            })
+          }
+        } else {
+          setImageLoadedUrl(
+            await loadImage(imageUrls[quality], image.url),
+          )
+        }
       }
-    } else {
-      setImageLoadedUrl(
-        await loadImage(imageUrls[quality], image.url),
-      )
     }
-  }
+  }, [ref, image, quality, loadingQuality])
 
   useEffect(() => {
     loadImageState()

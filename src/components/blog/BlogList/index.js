@@ -1,10 +1,9 @@
 import React from 'react'
-import { Query } from 'react-apollo'
+import { Query } from 'urql'
 import ListHeader, { ListContainer } from '../../ListHeader'
 import BlogPreviewCard from '../BlogPreviewCard'
 import CardSkeleton from './skeleton'
-import QueryHandler from '../../../models/QueryHandler'
-import { SingleBlogQuery } from '../../../models/WorkQL';
+import GraphHandler from '../../../models/GraphHandler'
 
 const SkeletonList = () => (
   <div className="row">
@@ -27,7 +26,7 @@ const SkeletonList = () => (
   </div>
 )
 
-const ItemList = ({ posts, client, onMouseOver }) => (
+const ItemList = ({ posts, onMouseOver }) => (
   <div className="row">
     {
       [...posts]
@@ -43,9 +42,6 @@ const ItemList = ({ posts, client, onMouseOver }) => (
               col-lg-3
             "
             onMouseOver={() => {
-              client.query({
-                query: SingleBlogQuery(props._id),
-              })
               onMouseOver && onMouseOver(props)
             }}
             key={props._id}
@@ -63,13 +59,11 @@ const BlogList = ({ query, onMouseOver = () => {} }) => (
       query={query}
     >
         {
-          (props) =>
-            QueryHandler({
-              component: ItemList,
-              loadingComponent: SkeletonList,
-              ...props,
-              onMouseOver,
-            })
+          GraphHandler({
+            component: ItemList,
+            loadingComponent: SkeletonList,
+            onMouseOver,
+          })
         }
     </Query>
   </ListContainer>

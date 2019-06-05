@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { Link } from 'react-router-dom'
 import handleViewport from 'react-in-viewport'
 import 'intersection-observer'
@@ -13,41 +13,22 @@ import { BrickText } from '../../ListHeader'
 import Colors from '../../../theme/Colors'
 
 const createLink = (id) => `/post/${id}`
+const MainCard = memo(_MainCard)
 
-function PostPreviewCard({ className, inViewport, innerRef, ...props }) {
-  const [hasSeen, setHasSeen] = useState(false)
-  useEffect(
-    () => {
-      if (inViewport && !hasSeen) {
-        setHasSeen(true)
-      }
-    },
-    [inViewport]
-  )
-  return (
-    <div
-      ref={innerRef}
-      className={className}
-    >
-      <PostPreviewContainer>
-        {hasSeen && <MainCard {...props} />}
-      </PostPreviewContainer>
-    </div>
-  )
-}
-
-function MainCard({ onMouseOver, _id, name, source, image, introduction }) {
+function _MainCard({ onMouseOver, _id, name, source, image, introduction }) {
   const [hovered, setHovered] = useState(false)
   const imageUrl = useImgResource({
     image,
-  }, 'med')
+  }, 'med', 'med')
 
   return (
     <Link
       to={createLink(_id)}
       onMouseOver={() => {
-        setHovered(true);
-        onMouseOver && onMouseOver();
+        if (!hovered) {
+          setHovered(true)
+        }
+        onMouseOver && onMouseOver()
       }}
     >
       <PostPreviewImage
@@ -71,4 +52,16 @@ function MainCard({ onMouseOver, _id, name, source, image, introduction }) {
   )
 }
 
-export default handleViewport(PostPreviewCard)
+function PostPreviewCard({ className, inViewport = true, ...props }) {
+  return (
+    <div
+      className={className}
+    >
+      <PostPreviewContainer>
+        <MainCard {...props} />
+      </PostPreviewContainer>
+    </div>
+  )
+}
+
+export default memo(PostPreviewCard)

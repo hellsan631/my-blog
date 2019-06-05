@@ -1,29 +1,29 @@
-import React from 'react'
-import { Query } from 'react-apollo'
-import QueryHandler from '../../../models/QueryHandler'
+import React, { memo } from 'react'
+import { Query } from 'urql'
+import GraphHandler from '../../../models/GraphHandler'
 import ListHeader, { ListContainer } from '../../ListHeader'
-import { ItemList } from './list';
+import { ItemList } from './list'
 
-const PostPreviewList = ({ query, onMouseOver = () => {} }) => (
-  <ListContainer>
-    <ListHeader
-      color="green"
-    >
-      Work.
-    </ListHeader>
-    <Query
-      query={query}
-    >
-        {
-          (props) =>
-            QueryHandler({
+const PostPreviewList = ({ query, onMouseOver = () => {} }) => {
+  return (
+    <ListContainer>
+      <ListHeader
+        color="green"
+      >
+        Work.
+      </ListHeader>
+      <Query
+        query={query}
+      >
+          {
+            GraphHandler({
               component: ItemList,
-              ...props,
               onMouseOver,
             })
-        }
-    </Query>
-  </ListContainer>
-)
+          }
+      </Query>
+    </ListContainer>
+  )
+}
 
-export default PostPreviewList
+export default memo(PostPreviewList)
