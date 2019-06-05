@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const PostQuery = gql`
-  query GetPosts {
+  {
     posts(
       where: {
         type: "post"

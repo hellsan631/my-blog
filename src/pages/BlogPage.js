@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
-import { Query } from 'urql'
+import { Query } from 'react-apollo'
 import { Helmet } from 'react-helmet'
 import { SingleBlogQuery } from '../models/WorkQL'
-import GraphHandler from '../models/GraphHandler'
+import QueryHandler from '../models/QueryHandler'
 import BlogHead from '../components/blog/BlogHead';
 import BlogText from '../components/blog/BlogText';
 
@@ -25,9 +25,11 @@ const BlogPage = ({ match: { params }}) => (
     query={SingleBlogQuery(params.id)}
   >
       {
-        GraphHandler({
-          component: BlogPageItem,
-        })
+        (props) =>
+          QueryHandler({
+            component: BlogPageItem,
+            ...props,
+          })
       }
   </Query>
 )

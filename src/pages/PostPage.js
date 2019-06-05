@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import { SingleBlogQuery } from '../models/WorkQL'
-import { Query } from 'urql'
-import GraphHandler from '../models/GraphHandler'
+import { Query } from 'react-apollo'
+import QueryHandler from '../models/QueryHandler'
 import PostHeader from '../components/post/PostHeader'
-import PostText from '../components/post/PostText'
+import PostText from '../components/post/PostText';
 
 const PostPageItem = ({ post }) => (
   <Fragment>
@@ -21,9 +21,11 @@ const PostPage = ({ match: { params }}) => (
     query={SingleBlogQuery(params.id)}
   >
       {
-        GraphHandler({
-          component: PostPageItem,
-        })
+        (props) =>
+          QueryHandler({
+            component: PostPageItem,
+            ...props,
+          })
       }
   </Query>
 )
