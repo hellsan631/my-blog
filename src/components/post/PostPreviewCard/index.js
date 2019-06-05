@@ -1,5 +1,7 @@
-import React, { useState, memo } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { Link } from 'react-router-dom'
+import handleViewport from 'react-in-viewport'
+import 'intersection-observer'
 import {
   PostPreviewContainer,
   PostPreviewImage,
